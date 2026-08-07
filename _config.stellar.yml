@@ -1,0 +1,176 @@
+######## Stellar 主题配置 ########
+# 此文件优先级高于主题内置配置，按需修改
+
+######## Logo 区域（左上角）########
+logo:
+  # 头像：引用根目录 _config.yml 的 avatar，点击跳转 /about/
+  avatar: '[{config.avatar}](/about/)'
+  # 站名：引用根目录 _config.yml 的 title，点击回首页
+  title: '[{config.title}](/)'
+  # 副标题：鼠标悬停时翻转显示第二行文字，用 | 分隔两行
+  subtitle: '读研日常 · 科研日常 · 开发记录 | MBSE × AI Blog'
+
+
+######## 侧边栏主导航菜单 ########
+# id 与页面的 menu_id 一致时高亮（首页/分类/标签/归档默认 menu_id 为 post）
+menubar:
+  columns: 4 # 一行多少个
+  items:
+    - id: post
+      theme: '#1BCDFC'
+      icon: solar:documents-bold-duotone
+      title: 博客
+      url: /
+    - id: about
+      theme: '#8B5CF6'
+      icon: solar:user-id-bold-duotone
+      title: 关于
+      url: /about/
+
+
+######## 站点结构（各页面的左右边栏）########
+site_tree:
+  home: # 主页
+    leftbar: welcome, recent
+    rightbar:
+  index_blog: # 分类/标签/归档等列表页
+    menu_id: post
+    leftbar: welcome, recent
+    rightbar:
+  post: # 文章内页
+    menu_id: post
+    leftbar: related, recent
+    rightbar: toc
+  page: # 自定义页面（如 about）
+    leftbar: recent
+    rightbar: toc
+  error_page:
+    menu_id: post
+    '404': '/404.html'
+    leftbar: recent
+    rightbar:
+
+######## 文章设置 ########
+article:
+  type: tech # tech 技术类排版 / story 图文类排版
+  auto_excerpt: 128 # 摘要自动截取字数
+  # 分类颜色：列表页与文章内分类标签显示对应颜色
+  category_color:
+    '读研日常': '#1BCDFC'
+    '科研日常': '#3DC550'
+    '开发记录': '#FA6400'
+  license: '本文采用 [署名-非商业性使用-相同方式共享 4.0 国际](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。'
+  related_posts: # 相关文章，需先执行: npm i hexo-related-popular-posts
+    enable: true
+    max_count: 5
+
+######## 站内搜索（你已安装 searchdb 插件，直接可用）########
+search:
+  service: local_search
+  local_search:
+    field: all
+    path: /search.json
+    content: true
+
+######## 评论（Giscus，填好后把 service 改为 giscus）########
+comments:
+  service: # 开通后填 giscus
+  comment_title: 快来参与讨论吧~
+  giscus:
+    src: https://giscus.app/client.js
+    data-repo: flightleaf/flightleaf.github.io # 换成你的评论仓库
+    data-repo-id: # 在 giscus.app 配置后获得
+    data-category: Announcements
+    data-category-id: # 在 giscus.app 配置后获得
+    data-mapping: pathname
+    data-strict: 0
+    data-reactions-enabled: 1
+    data-emit-metadata: 0
+    data-input-position: top
+    data-theme: preferred_color_scheme
+    data-lang: zh-CN
+    crossorigin: anonymous
+
+######## 页脚 ########
+footer:
+  social:
+    github:
+      icon: '<img src="https://api.iconify.design/simple-icons:github.svg">'
+      url: https://github.com/flightleaf
+    gitee:
+      icon: '<img src="https://api.iconify.design/simple-icons:gitee.svg">'
+      url: https://gitee.com/flight-leaf
+    csdn:
+      icon: '<img src="https://api.iconify.design/simple-icons:csdn.svg">'
+      url: https://blog.csdn.net/weixin_63918357
+    email:
+      icon: '<img src="https://api.iconify.design/mdi:email-outline.svg">'
+      url: mailto:baochun0314@foxmail.com
+    lab:
+      icon: '<img src="https://api.iconify.design/mdi:school-outline.svg">'
+      url: https://icct.uestc.edu.cn/
+  # 页脚导航链接
+  sitemap:
+    - title: 内容
+      items:
+        - '[近期发布](/)'
+        - '[分类](/categories/)'
+        - '[标签](/tags/)'
+        - '[归档](/archives/)'
+        - '[RSS 订阅](/atom.xml)'
+    - title: 关于
+      items:
+        - '[关于我](/about/)'
+        - '[GitHub](https://github.com/flightleaf)'
+        - '[Gitee](https://gitee.com/flight-leaf)'
+        - '[CSDN](https://blog.csdn.net/weixin_63918357)'
+        - '[实验室](https://icct.uestc.edu.cn/)'
+  content: | # 支持 Markdown
+    本站由 [{author.name}](/) 使用 [{theme.name} {theme.version}]({theme.tree}) 主题创建。
+    本博客所有文章除特别声明外，均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议，转载请注明出处。
+
+######## 外观风格 ########
+style:
+  prefers_theme: auto # auto 跟随系统 / light / dark
+  smooth_scroll: true
+  font-size:
+    root: 16px
+    body: 17px
+  color:
+    theme: 'hsl(192 98% 55%)' # 主题色（青蓝）
+    accent: 'hsl(14 100% 57%)' # 强调色（橙红）
+    link: 'hsl(207 90% 54%)' # 链接色
+  leftbar: # 左侧栏背景：纯色/渐变/图片三选一
+    background-color-light: var(--card)
+    background-color-dark: var(--card)
+    # background-image: url(https://你的图片.jpg)
+    # blur-px: 100px
+    # blur-bg: var(--bg-a60)
+  header_prefix: # 文章内标题前的符号
+    h2: '#'
+    h3: '='
+    h4: '|'
+    h5: ':'
+
+######## 功能插件 ########
+plugins:
+  copycode: # 代码块一键复制
+    enable: true
+    toast: 复制成功
+  fancybox: # 图片点击放大（覆盖 Markdown 正文图片与时间线图片）
+    enable: true
+    selector: .timenode p>img, .md-text img:not([class]), .md-text .image img
+  # MathJax 数学公式：文章 front-matter 加 mathjax: true 启用
+  # 使用 MathJax v3（配置先于脚本加载，兼容 Firefox/Edge/Chrome）
+  mathjax:
+    enable: true
+    v3: true
+    js: https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
+  preload: # 页面预加载，打开更快
+    enable: true
+    service: flying_pages
+    flying_pages: https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js
+
+######## Open Graph（分享卡片）########
+open_graph:
+  enable: true

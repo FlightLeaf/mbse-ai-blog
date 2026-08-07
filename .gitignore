@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+
+# 部署仓库（hexo-deployer-git 生成的独立 Git 仓库，严禁纳入项目版本控制）
+.deploy_git/
+.deploy*/
+
+# 临时文件与 IDE 工具目录
+.tmp/
+temp/
+.qoder/
+
+_multiconfig.yml
